@@ -1,0 +1,59 @@
+<html> 
+
+<script> 
+
+    // JavaScript doesn't care about indents. THANKS OBAMA.
+
+    // if-else. 
+
+    var x = 3;
+    var y = 4;
+    var z = 13; 
+    var age = 25;
+    
+    
+    if (age < 18 ) { // minor
+        
+        document.write("minor = " + age);
+        
+    } else { 
+        
+        if (age >= 65) {
+            document.write("Senior Citizen = " + age); // eligible for Social Security
+        } else { 
+        document.write("y = " + y); 
+        }
+    }    
+
+    // ternary condition.  Of THREE parts. Collapses the if-else statement into one line. 
+    
+    var category = (age <18) ? "minor" : "adult"; 
+    
+    // SWITCH statements! 
+    
+    switch (age) {
+        case 18: 
+            // do stuff. Can buy lotto, cannot buy booze.
+            break;
+        case 23: 
+            // do other stuff. Can buy booze. 
+            break;
+        case 46: 
+            // Do stuff. Can buy booze, but is over it.
+            break;
+        case 2: 
+            // toddler. Cannot buy booze.
+            break;
+        case 65: 
+            // Senior Citizen. Can do whatever the hell they want.
+            break;
+        default: 
+            // anything else. 
+    }
+
+</script>
+
+</html>
+
+
+
