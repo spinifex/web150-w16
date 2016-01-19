@@ -2,18 +2,56 @@
 <body>
 <script> 
 
-var proceed = confirm("Do you want to hear a story? About a lonely ghost named Bones?");
+var proceed = confirm("Duana wants to start a band! Want to help her out?");
 
 if (proceed) {
     document.write("Good! Here we go!")
 } else { 
-    document.write("OK, maybe next time!")
+    document.write("OK, maybe next time! Let the music heal your soul.")
 } 
 
+var city = prompt("Where do you live?"); 
 
 
+switch (city) {
+    
+    case "Seattle":
+    document.write("Duana's band hails from " + city + "! Go Sounders!");    
+    break;
+    
+    case "Bellevue":
+    document.write("Duana's band hails from " + city + "! Go Suburbia!");    
+    break;
+    
+    case "Portland":
+    document.write("Duana's band hails from " + city + "! Go Timbers!");    
+    break;
+    
+    case "Issaquah":
+    document.write("Duana's band hails from " + city + "! Go Fish Festival!");    
+    break;
+    
+    default: 
+    var pnw = confirm("Do you live in the Pacific Northwest?");
+        if (pnw) {
+            document.write("Duana's band hails from the Great Pacific Northwest!");
+        } else {
+            document.write("Duana's band hails from somewhere on Earth!");
+        }
+        
+    break; 
+}
 
-
+var bandmates = prompt("How many other band mates will Dwana have?");
+if (bandmates == null) {
+    document.write("That makes no sense! There has to be at least one member!");
+} else if (Number(bandmates) >= 0 && Number(bandmates) < 8 ) {
+    document.write("This will be a small band, with " + bandmates + " bandmates!");
+} else if (Number(bandmates) >= 8 && Number(bandmates) < 20 ) {
+    document.write("This will be a medium-sized band, with " + bandmates + " bandmates!"); 
+} else { 
+    document.write("This will be a medium-sized band, with " + bandmates + " bandmates!");
+}
 
 </script>
 </body>
