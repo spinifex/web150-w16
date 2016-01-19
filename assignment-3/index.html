@@ -2,55 +2,55 @@
 <body>
 <script> 
 
-var proceed = confirm("Duana wants to start a band! Want to help her out?");
+var proceed = confirm("Duana wants to start a band! Want to help her out?\n");
 
-if (proceed) {
-    document.write("Good! Here we go!")
+if (proceed == true) {
+    document.write("Good! Here we go - let's build a band!\n");
 } else { 
-    document.write("OK, maybe next time! Let the music heal your soul.")
+    document.write("OK, maybe next time! Let the music heal your soul.\n");
 } 
 
-var city = prompt("Where do you live?"); 
+var city = prompt("Where do you live?\n"); 
 
 
 switch (city) {
     
     case "Seattle":
-    document.write("Duana's band hails from " + city + "! Go Sounders!");    
+    document.write("Duana's band hails from " + city + "! Go Sounders!\n");    
     break;
     
     case "Bellevue":
-    document.write("Duana's band hails from " + city + "! Go Suburbia!");    
+    document.write("Duana's band hails from " + city + "! Go Suburbia!\n");    
     break;
     
     case "Portland":
-    document.write("Duana's band hails from " + city + "! Go Timbers!");    
+    document.write("Duana's band hails from " + city + "! Go Timbers!\n");    
     break;
     
     case "Issaquah":
-    document.write("Duana's band hails from " + city + "! Go Fish Festival!");    
+    document.write("Duana's band hails from " + city + "! Go Fish Festival!\n");    
     break;
     
     default: 
-    var pnw = confirm("Do you live in the Pacific Northwest?");
+    var pnw = confirm("Do you live in the Pacific Northwest?\n");
         if (pnw) {
-            document.write("Duana's band hails from the Great Pacific Northwest!");
+            document.write("Duana's band hails from the Great Pacific Northwest!\n");
         } else {
-            document.write("Duana's band hails from somewhere on Earth!");
+            document.write("Duana's band hails from somewhere on Earth!\n");
         }
         
     break; 
 }
 
-var bandmates = prompt("How many other band mates will Dwana have?");
+var bandmates = prompt("How many other band mates will Dwana have?\n");
 if (bandmates == null) {
-    document.write("That makes no sense! There has to be at least one member!");
+    document.write("That makes no sense! There has to be at least one member!\n");
 } else if (Number(bandmates) >= 0 && Number(bandmates) < 8 ) {
-    document.write("This will be a small band, with " + bandmates + " bandmates!");
+    document.write("Duana will have a small band, with " + bandmates + " bandmates!\n");
 } else if (Number(bandmates) >= 8 && Number(bandmates) < 20 ) {
-    document.write("This will be a medium-sized band, with " + bandmates + " bandmates!"); 
+    document.write("Duana will have a medium-sized band, with " + bandmates + " bandmates!\n"); 
 } else { 
-    document.write("This will be a medium-sized band, with " + bandmates + " bandmates!");
+    document.write("Duana will have a large-sized band, with " + bandmates + " bandmates!\n");
 }
 
 </script>
