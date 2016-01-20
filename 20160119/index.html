@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My Students</h1>
+
+<script>
+
+var students = [["mark",25],["mary",20],["sue",30]];
+
+//document.write("name = " + students[0][0]);
+//document.write("<br>score = " + students[0][1]);
+
+for (var i = 0; i < students.length; i++) {
+
+document.write("<br>Student # " + i + " = " + students[i]);  
+
+if (i == 1) {
+break;
+}
+}
+
+// Second way to do it. 
+
+for (s in students) { 
+document.write("<br>student = " + students[s]); 
+} 
+
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+var students = [["Mark",25,"F"], ["Mary",20,"M"], ["Sue",30,"M"]]; 
+
+var total = 0; 
+var maxScore = 0; 
+var minScore = 100; 
+
+
+for (var i = 0; i <students.length; i++) { 
+
+var score = students[i][1]; 
+total += score; 
+
+if (score > maxScore) { maxScore = score; }
+if (score < minScore) { minScore = score; } 
+
+document.write("<br>student #" + i + " = " + students[i]); 
+}
+
+document.write("<br>max score = " + maxScore); 
+document.write("<br>min score = " + minScore); 
+document.write("<br>avg. score = " + total/students.length); 
+
+</script> 
+</body>
+</html> 
