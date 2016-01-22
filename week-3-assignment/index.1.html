@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>     
+     
+<body>
+
+<script src = "Seattle_Crime_Stats_2013.js"></script> 
+
+<script> 
+
+// https://canvas.seattlecentral.edu/courses/1254835/assignments/7051183
+
+	var INDEX_MONTH = 0;
+	var INDEX_PRECINCT = 1;
+	var INDEX_CRIME = 2;
+	var INDEX_COUNT = 3; 
+
+	var month_names = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+	var crime_types = []; 
+	var precincts = []; 
+	var months = []; 
+
+	var homicide_by_month = [0,0,0,0,0,0,0,0,0,0,0,0]; 
+	var burglary_by_month = [0,0,0,0,0,0,0,0,0,0,0,0];
+	var precinct_by_number = [0,0,0,0,0];
+
+for (r in crime_stats) { 
+
+	// Check that our data is clean and reliable. 
+	// Not needed for the homework
+	if (precincts.indexOf(crime_stats[r][INDEX_PRECINCT]) == -1) {
+	precincts.push(crime_stats[r][INDEX_PRECINCT]);
+	}
+
+	if (crime_types.indexOf(crime_stats[r][INDEX_CRIME]) == -1) {
+	crime_types.push(crime_stats[r][INDEX_CRIME]);
+    }
+
+	if (months.indexOf(crime_stats[r][INDEX_MONTH]) == -1) {
+	months.push(crime_stats[r][INDEX_MONTH]);
+    }
+    
+    if (month_names.indexOf(crime_stats[r][INDEX_MONTH]) == -1) {
+	month_names.push(crime_stats[r][INDEX_MONTH]);
+    }
+    
+/*
+    if (crime_stats[r][INDEX_CRIME] == "Homicide") {
+		var monthNum = crime_stats[r][INDEX_MONTH]; 
+        homicide_by_month[monthNum -1] += crime_stats[ r][INDEX_COUNT];
+	document.write(crime_stats[r] + "<br>"); 
+    }
+  
+*/   
+    if (crime_stats[r][INDEX_CRIME] == "Burglary") {
+		var monthNum = crime_stats[r][INDEX_MONTH]; 
+        burglary_by_month[monthNum -1] += crime_stats[r][INDEX_COUNT];
+	document.write(crime_stats[r] + "<br>"); 
+    }
+
+	for (var i = 0, sum = 0; i < burglary_by_month.length; sum += burglary_by_month[i++]);
+	
+      
+     // Which precinct had the most burglaries in 2013?
+     
+     
+     // What was the average number of burglaries per precinct?
+     
+     
+     // In which month were the fewest assaults reported?
+     
+    
+}
+
+document.write("Total Reports: " + crime_stats.length + "<br>") 
+document.write("Total precincts: " + precincts + "<br>") 
+document.write("Total crime types: " + crime_types + "<br>") 
+document.write("Total months: " + months + "<br>")
+document.write("Month names: " + month_names + "<br>")
+document.write("Total burglary_by_month: " + burglary_by_month + "<br>") 
+document.write("Total burglaries for 2013: " + sum);
+
+
+
+</script>
+</body>
+</html> 
