@@ -1,0 +1,52 @@
+<html> 
+<body>
+
+<script src = “Seattle_Crime_Stats_2013.js”></script> 
+
+<script> 
+
+	var INDEX_MONTH = 0;
+	var INDEX_PRECINCT = 1;
+	var INDEX_CRIME = 2;
+	var INDEX_COUNT = 3; 
+
+	var month_names = [“January”, “February”, “March”, “April”, “May”, “June”, “July”, “August”, “September”, “October”, “November”, “December” ]
+	var crime_types = []; 
+	var precincts = []; 
+	var months = []; 
+
+	var homicide_by_month = [0,0,0,0,0,0,0,0,0,0,0,0]; 
+
+for (r in crime_stats) { 
+
+	// Check that our data is clean and reliable. 
+	// Not needed for the homework
+	if (precincts.indexOf(crime_stats[r][INDEX_PRECINCT]) == -1) {
+	precincts.push(crime_stats[r][INDEX_PRECINCT]);
+	}
+
+	if (crime_types.indexOf(crime_stats[r][INDEX_PRECINCT]) == -1) {
+	crime_types.push(crime_stats[r][INDEX_PRECINCT]);
+    }
+
+	if (crime_stats.indexOf(crime_stats[r][INDEX_PRECINCT]) == -1) {
+	crime_stats.push(crime_stats[r][INDEX_PRECINCT]);
+    }
+
+    if (crime_stats[ r][INDEX_CRIME] == “Homicide”) {
+		var monthNum = crime_stats[ r][INDEX_MONTH]; 
+        homicide_by_month[monthNum -1] += crime_stats[ r][INDEX_COUNT];
+	document.write(crime_stats[r] + "<br>"); 
+    }
+    
+}
+
+document.write("Total Reports: " + crime_stats.length) 
+document.write(precincts) 
+document.write(crime_types) 
+document.write(homicide_by_month) 
+
+
+</script>
+</body>
+</html> 
