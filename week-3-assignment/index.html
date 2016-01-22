@@ -1,7 +1,7 @@
 <html> 
 <body>
 
-<script src = “Seattle_Crime_Stats_2013.js”></script> 
+<script src = "Seattle_Crime_Stats_2013.js"></script> 
 
 <script> 
 
@@ -16,6 +16,9 @@
 	var months = []; 
 
 	var homicide_by_month = [0,0,0,0,0,0,0,0,0,0,0,0]; 
+
+    var r = ''; 
+    var crime_stats = '';
 
 for (r in crime_stats) { 
 
@@ -41,10 +44,10 @@ for (r in crime_stats) {
     
 }
 
-document.write("Total Reports: " + crime_stats.length) 
-document.write(precincts) 
-document.write(crime_types) 
-document.write(homicide_by_month) 
+document.write("Total Reports: " + crime_stats.length + "<br>") 
+document.write("Total precincts: " + precincts + "<br>") 
+document.write("Total crime types: " + crime_types + "<br>") 
+document.write("Total homicides by month: " + homicide_by_month + "<br>") 
 
 
 </script>
