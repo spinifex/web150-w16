@@ -22,6 +22,7 @@
 	var months = []; 
 
 	var homicide_by_month = [0,0,0,0,0,0,0,0,0,0,0,0]; 
+	var burglary_by_month = [0,0,0,0,0,0,0,0,0,0,0,0];
 	var precinct_by_number = [0,0,0,0,0];
 
 for (r in crime_stats) { 
@@ -44,16 +45,21 @@ for (r in crime_stats) {
 	month_names.push(crime_stats[r][INDEX_MONTH]);
     }
     
-
-    if (crime_stats[ r][INDEX_CRIME] == "Homicide") {
-		var monthNum = crime_stats[ r][INDEX_MONTH]; 
+/*
+    if (crime_stats[r][INDEX_CRIME] == "Homicide") {
+		var monthNum = crime_stats[r][INDEX_MONTH]; 
         homicide_by_month[monthNum -1] += crime_stats[ r][INDEX_COUNT];
 	document.write(crime_stats[r] + "<br>"); 
     }
-     
-     // How many total burglaries were reported in 2013?
-     
-     
+  
+*/   
+    if (crime_stats[r][INDEX_CRIME] == "Burglary") {
+		var monthNum = crime_stats[r][INDEX_MONTH]; 
+        burglary_by_month[monthNum -1] += crime_stats[r][INDEX_COUNT];
+	document.write(crime_stats[r] + "<br>"); 
+    }
+
+      
      // Which precinct had the most burglaries in 2013?
      
      
@@ -70,7 +76,8 @@ document.write("Total precincts: " + precincts + "<br>")
 document.write("Total crime types: " + crime_types + "<br>") 
 document.write("Total months: " + months + "<br>")
 document.write("Month names: " + month_names + "<br>")
-document.write("Total homicides by month: " + homicide_by_month + "<br>") 
+document.write("Total burglary_by_month: " + burglary_by_month + "<br>") 
+
 
 
 </script>
