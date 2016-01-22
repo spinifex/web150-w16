@@ -1,4 +1,8 @@
-<html> 
+<html>
+<head>
+<meta charset="UTF-8">
+</head>     
+     
 <body>
 
 <script src = "Seattle_Crime_Stats_2013.js"></script> 
@@ -16,6 +20,7 @@
 	var months = []; 
 
 	var homicide_by_month = [0,0,0,0,0,0,0,0,0,0,0,0]; 
+	var precinct_by_number = [0,0,0,0,0];
 
 for (r in crime_stats) { 
 
@@ -25,25 +30,33 @@ for (r in crime_stats) {
 	precincts.push(crime_stats[r][INDEX_PRECINCT]);
 	}
 
-	if (crime_types.indexOf(crime_stats[r][INDEX_PRECINCT]) == -1) {
-	crime_types.push(crime_stats[r][INDEX_PRECINCT]);
+	if (crime_types.indexOf(crime_stats[r][INDEX_CRIME]) == -1) {
+	crime_types.push(crime_stats[r][INDEX_CRIME]);
     }
 
-	if (crime_stats.indexOf(crime_stats[r][INDEX_PRECINCT]) == -1) {
-	crime_stats.push(crime_stats[r][INDEX_PRECINCT]);
+	if (months.indexOf(crime_stats[r][INDEX_MONTH]) == -1) {
+	months.push(crime_stats[r][INDEX_MONTH]);
     }
+    
+    if (month_names.indexOf(crime_stats[r][INDEX_MONTH]) == -1) {
+	month_names.push(crime_stats[r][INDEX_MONTH]);
+    }
+    
 
     if (crime_stats[ r][INDEX_CRIME] == "Homicide") {
 		var monthNum = crime_stats[ r][INDEX_MONTH]; 
         homicide_by_month[monthNum -1] += crime_stats[ r][INDEX_COUNT];
 	document.write(crime_stats[r] + "<br>"); 
     }
-    
+     
+   
 }
 
 document.write("Total Reports: " + crime_stats.length + "<br>") 
 document.write("Total precincts: " + precincts + "<br>") 
 document.write("Total crime types: " + crime_types + "<br>") 
+document.write("Total months: " + months + "<br>")
+document.write("Month names: " + month_names + "<br>")
 document.write("Total homicides by month: " + homicide_by_month + "<br>") 
 
 
