@@ -1,30 +1,46 @@
 <html> 
 <body>
+  
+  
+ <!-- <p>The lowest number is <span id="demo"></span></p> --> 
+  
 <script> 
-
-// var array = [1, 2, 3];
-/*
-function sumArray(array) {
-  for (
-    var
-      index = 0,              // The iterator
-      length = array.length,  // Cache the array length
-      sum = 0;                // The total amount
-      index < length;         // The "for"-loop condition
-      sum += array[index++]   // Add number on each iteration
-      
-  );
-  return sum;
-*/ 
 
 // THIS WORKS
 
 var array = [1, 2, 3];
 
+var crime_stats = [[1,"E","Robbery",3],
+[1,"E","Larceny-Theft",30],
+[1,"E","Motor Vehicle Theft",11],
+[1,"E","Burglary",18],
+[1,"E","Robbery",1],
+[1,"E","Assault",1],
+[1,"E","Larceny-Theft",15],
+[1,"E","Motor Vehicle Theft",2],
+[1,"E","Burglary",7],
+[1,"W","Robbery",1],
+[1,"W","Assault",2],
+[1,"W","Larceny-Theft",50],
+[1,"W","Motor Vehicle Theft",7],
+[1,"W","Burglary",16],
+[1,"E","Assault",4],
+[1,"E","Larceny-Theft",25],
+[1,"E","Motor Vehicle Theft",10],
+[1,"E","Burglary",12],
+[1,"E","Robbery",3],
+[1,"E","Assault",3]] 
+
+
+
 for (var i = 0, sum = 0; i < array.length; sum += array[i++]);
-document.write(sum);
+document.write("Sum of the array is: " + sum + "<br>");
 
+array.sort(function(a, b){return a-b});
+// document.getElementById("demo").innerHTML = array[0];
+var lowest = array[0]; 
 
+document.write("Lowest # of the array is: " + lowest + "<br>"); 
 
 </script>
 </body>
