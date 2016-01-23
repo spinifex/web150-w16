@@ -51,7 +51,7 @@ for (r in crime_stats) {
     if (crime_stats[r][INDEX_CRIME] == "Burglary") {
 		var monthNum = crime_stats[r][INDEX_MONTH]; 
         burglary_by_month[monthNum -1] += crime_stats[r][INDEX_COUNT];
-	document.write(crime_stats[r] + "<br>"); 
+	// document.write(crime_stats[r] + "<br>"); 
 	
     }
 
@@ -82,7 +82,7 @@ for (s in crime_stats) {
     if (crime_stats[s][INDEX_CRIME] == "Assault") {
 		var monthNum = crime_stats[s][INDEX_MONTH]; 
         assaults_by_month[monthNum -1] += crime_stats[s][INDEX_COUNT];
-	document.write(crime_stats[s] + "<br>"); 
+	// document.write(crime_stats[s] + "<br>"); 
 
     }
 
