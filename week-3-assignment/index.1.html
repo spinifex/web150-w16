@@ -17,6 +17,7 @@
 	var INDEX_COUNT = 3; 
 
 	var month_names = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+	var precinct_names = ["E","W","SE","N","SW"]; 
 	var crime_types = []; 
 	var precincts = []; 
 	var months = []; 
@@ -25,11 +26,11 @@
 	var burglary_by_month = [0,0,0,0,0,0,0,0,0,0,0,0];
 	var assaults_by_month = [0,0,0,0,0,0,0,0,0,0,0,0];
 	var precinct_by_number = [0,0,0,0,0];
+	var burglary_by_precinct = [0,0,0,0,0];
 
+// Total number of burglaries for 2013: 
 for (r in crime_stats) { 
 
-	// Check that our data is clean and reliable. 
-	// Not needed for the homework
 	if (precincts.indexOf(crime_stats[r][INDEX_PRECINCT]) == -1) {
 	precincts.push(crime_stats[r][INDEX_PRECINCT]);
 	}
@@ -46,34 +47,86 @@ for (r in crime_stats) {
 	month_names.push(crime_stats[r][INDEX_MONTH]);
     }
     
-/*
-    if (crime_stats[r][INDEX_CRIME] == "Homicide") {
-		var monthNum = crime_stats[r][INDEX_MONTH]; 
-        homicide_by_month[monthNum -1] += crime_stats[ r][INDEX_COUNT];
-	document.write(crime_stats[r] + "<br>"); 
-    }
   
-*/   
     if (crime_stats[r][INDEX_CRIME] == "Burglary") {
 		var monthNum = crime_stats[r][INDEX_MONTH]; 
         burglary_by_month[monthNum -1] += crime_stats[r][INDEX_COUNT];
 	document.write(crime_stats[r] + "<br>"); 
+	
     }
 
      for (var i = 0, burglary_sum = 0; i < burglary_by_month.length; burglary_sum += burglary_by_month[i++]);
 
+}
+
+// The month with the lowest # of assaults: 
+for (s in crime_stats) { 
+
+	if (precincts.indexOf(crime_stats[s][INDEX_PRECINCT]) == -1) {
+	precincts.push(crime_stats[s][INDEX_PRECINCT]);
+	}
+
+	if (crime_types.indexOf(crime_stats[s][INDEX_CRIME]) == -1) {
+	crime_types.push(crime_stats[s][INDEX_CRIME]);
+    }
+
+	if (months.indexOf(crime_stats[s][INDEX_MONTH]) == -1) {
+	months.push(crime_stats[r][INDEX_MONTH]);
+    }
+    
+    if (month_names.indexOf(crime_stats[s][INDEX_MONTH]) == -1) {
+	month_names.push(crime_stats[s][INDEX_MONTH]);
+    }
+    
+  
+    if (crime_stats[s][INDEX_CRIME] == "Assault") {
+		var monthNum = crime_stats[s][INDEX_MONTH]; 
+        assaults_by_month[monthNum -1] += crime_stats[s][INDEX_COUNT];
+	document.write(crime_stats[s] + "<br>"); 
+
+    }
+
      // In which month were the fewest assaults reported?
-	if (crime_stats[r][INDEX_CRIME] == "Assault") {
+/*	if (crime_stats[r][INDEX_CRIME] == "Assault") {
 		var monthNum = crime_stats[r][INDEX_MONTH]; 
         assaults_by_month[monthNum -1] += crime_stats[r][INDEX_COUNT];
-	document.write(crime_stats[r] + "<br>"); 
+        assaults_lowest = assaults_by_month.sort(function(a, b){return a-b});
+	document.write(crime_stats[r] + "<br>");
+	document.write(assaults_lowest + "<br>");
     }
-     
-// 	assaults_by_month.sort(function(a, b){return a-b});
-	// document.getElementById("demo").innerHTML = array[0];
-//	var assaults_lowest = assaults_by_month[0];    
-
+*/
+//	assaults_by_month.sort(function(a, b){return a-b});
+	//document.getElementById("demo").innerHTML = array[0];
+//	var assaults_lowest = assaults_by_month[0];      
+//	assaults_lowest = assaults_by_month.sort(function(a, b){return a-b}); 
 	
+}
+
+// Which precinct had the most burglaries in 2013?
+
+for (t in crime_stats) { 
+
+	if (precincts.indexOf(crime_stats[t][INDEX_PRECINCT]) == -1) {
+	precincts.push(crime_stats[t][INDEX_PRECINCT]);
+	}
+
+	if (crime_types.indexOf(crime_stats[t][INDEX_CRIME]) == -1) {
+	crime_types.push(crime_stats[t][INDEX_CRIME]);
+    }
+
+	if (months.indexOf(crime_stats[t][INDEX_MONTH]) == -1) {
+	months.push(crime_stats[t][INDEX_MONTH]);
+    }
+    
+    if (month_names.indexOf(crime_stats[t][INDEX_MONTH]) == -1) {
+	month_names.push(crime_stats[t][INDEX_MONTH]);
+    }
+    
+  
+    if (crime_stats[t][INDEX_CRIME] == "Burglary") {
+		var precinctNum = crime_stats[t][INDEX_PRECINCT]; 
+        burglary_by_precinct[precinctNum -1] += crime_stats[t][INDEX_COUNT];
+    }
 }
 
 // document.write("Total Reports: " + crime_stats.length + "<br>") 
@@ -86,14 +139,8 @@ document.write("Total burglary_by_month: " + burglary_by_month + "<br>");
 // Total burglaries for 2013: 
 document.write("Total burglaries for 2013: " + burglary_sum + "<br>");
 
-// Month with the least assaults. 
-document.write("Total assaults_by_month: " + assaults_by_month + "<br>");  
-
-// Total assaults for 2013: 
-// document.write("Total assaults for 2013: " + assaults_sum + "<br>");
-
-// Month with the lowest # of assaults for 2013: 
-// document.write("Lowest assaults for 2013: " + assaults_lowest + "<br>");
+document.write("Total assaults_by_month: " + assaults_by_month + "<br>");
+document.write("Total burglary_by_precinct: " + burglary_by_precinct + "<br>")
 
 </script>
 </body>

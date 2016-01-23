@@ -1,16 +1,15 @@
 <html> 
 <body>
   
-  
+<script src = "Seattle_Crime_Stats_2013.js"></script>   
  <!-- <p>The lowest number is <span id="demo"></span></p> --> 
-  
 <script> 
 
 // THIS WORKS
 
 var array = [1, 2, 3];
 
-var crime_stats = [[1,"E","Robbery",3],
+/* var crime_stats = [[1,"E","Robbery",3],
 [1,"E","Larceny-Theft",30],
 [1,"E","Motor Vehicle Theft",11],
 [1,"E","Burglary",18],
@@ -29,9 +28,25 @@ var crime_stats = [[1,"E","Robbery",3],
 [1,"E","Motor Vehicle Theft",10],
 [1,"E","Burglary",12],
 [1,"E","Robbery",3],
-[1,"E","Assault",3]] 
+[1,"E","Assault",3]]; 
+*/ 
 
 
+
+	var INDEX_MONTH = 0;
+	var INDEX_PRECINCT = 1;
+	var INDEX_CRIME = 2;
+	var INDEX_COUNT = 3; 
+
+	var month_names = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	var crime_types = []; 
+	var precincts = []; 
+	var months = []; 
+
+	var homicide_by_month = [0,0,0,0,0,0,0,0,0,0,0,0]; 
+	var burglary_by_month = [0,0,0,0,0,0,0,0,0,0,0,0];
+	var assaults_by_month = [0,0,0,0,0,0,0,0,0,0,0,0];
+	var precinct_by_number = [0,0,0,0,0];
 
 for (var i = 0, sum = 0; i < array.length; sum += array[i++]);
 document.write("Sum of the array is: " + sum + "<br>");
@@ -40,7 +55,15 @@ array.sort(function(a, b){return a-b});
 // document.getElementById("demo").innerHTML = array[0];
 var lowest = array[0]; 
 
+     
+assaults_by_month.sort(function(a, b){return a-b});
+//document.getElementById("demo").innerHTML = array[0];
+var assaults_lowest = assaults_by_month[0];    
+
 document.write("Lowest # of the array is: " + lowest + "<br>"); 
+
+document.write("Lowest # of assaults_lowest is: " + lowest + "<br>"); 
+
 
 </script>
 </body>
